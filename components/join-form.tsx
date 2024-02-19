@@ -1,15 +1,41 @@
+'use client'
+
+import { useFormState } from "react-dom"
+import { newJoin } from "@/lib/actions"
+import { clsx } from "clsx";
+
 export function JoinForm() {
+  const initialState = { errors: null, message: null }
+  const [state, dispatch] = useFormState(newJoin, initialState)
+
   return (
-    <form action="" className="space-y-6">
+    <form action={dispatch} className="space-y-6">
       <div className="flex flex-col gap-2">
-        <label
-          className="text-xs font-bold"
-          htmlFor="email"
-        >
-          Email address
-        </label>
+        <div className="flex flex-row justify-between">
+          <label
+            className="text-xs font-bold"
+            htmlFor="email"
+          >
+            Email address
+          </label>
+          <div id="email-error" aria-live="polite" aria-atomic>
+            {
+              state?.errors?.email &&
+              state.errors.email.map(error => (
+                <p className="text-tomato text-xs font-bold">
+                  {error}
+                </p>
+              ))
+            }
+          </div>
+        </div>
         <input
-          className="pl-5 py-4 border-solid border border-grey rounded-md"
+          aria-describedby="email-error"
+          className={clsx(
+            "pl-5 py-4 border-solid border border-grey rounded-md", {
+              "text-tomato bg-red-100 border-tomato": state?.errors?.email
+            }
+          )}
           id="email"
           name="email"
           placeholder="email@company.com"
