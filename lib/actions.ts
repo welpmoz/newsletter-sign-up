@@ -1,11 +1,7 @@
 'use server'
 
 import { redirect } from "next/navigation";
-import { z } from "zod";
-
-const EmailValidator = z.object({
-  email: z.string().email({ message: 'Valid email required'}),
-})
+import { EmailValidator } from "./validators";
 
 type State = {
   errors?: {

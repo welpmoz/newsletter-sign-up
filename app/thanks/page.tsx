@@ -1,4 +1,6 @@
+import { EmailValidator } from "@/lib/validators"
 import Image from "next/image"
+import { redirect } from "next/navigation"
 
 interface SearchParams {
   searchParams?: {
@@ -9,7 +11,11 @@ interface SearchParams {
 export default async function Page({
  searchParams
 }: SearchParams) {
-  const email = searchParams?.email || 'default@gmail.com'
+  const validatedUrl = EmailValidator.safeParse(searchParams)
+
+  if (!validatedUrl.success) redirect(`/`)
+
+  const { email } = validatedUrl.data
 
   return (
     <div className="flex flex-col bg-white min-h-screen px-4 py-8">
