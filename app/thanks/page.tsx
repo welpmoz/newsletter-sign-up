@@ -52,7 +52,10 @@ export default async function Page({
 
       <form action="" className="w-full">
         <button
-          className="w-full text-center py-4 bg-dark-slate-grey text-white font-bold rounded-md"
+          className={clsx(
+            "w-full text-center py-4 bg-dark-slate-grey text-white font-bold rounded-md",
+            "hover:bg-tomato"
+          )}
           type="submit"
         >
           Dismiss message

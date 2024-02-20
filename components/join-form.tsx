@@ -32,7 +32,8 @@ export function JoinForm() {
         <input
           aria-describedby="email-error"
           className={clsx(
-            "pl-5 py-4 border-solid border border-grey rounded-md", {
+            "pl-5 py-4 border-solid border border-grey rounded-md",
+            "hover:cursor-pointer active:border-dark-slate-grey active:text-dark-slate-grey", {
               "text-tomato bg-red-100 border-tomato": state?.errors?.email
             }
           )}
