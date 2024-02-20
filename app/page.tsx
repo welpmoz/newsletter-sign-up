@@ -29,8 +29,8 @@ export default function Home() {
         </p>
 
         <ul>
-          {advantages.map(advantage => (
-            <ListItem content={advantage} />
+          {advantages.map((advantage, i) => (
+            <ListItem content={advantage} key={i} />
           ))}
         </ul>
 

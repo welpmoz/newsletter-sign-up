@@ -12,8 +12,10 @@ export default async function Page({
   const email = searchParams?.email || 'default@gmail.com'
 
   return (
-    <div className="bg-white min-h-screen relative">
-      <div className="pt-32 px-4 text-dark-slate-grey space-y-6">
+    <div className="flex flex-col bg-white min-h-screen px-4 py-8">
+      <div className="flex-grow-[3]"></div>
+
+      <div className="text-dark-slate-grey space-y-6">
         <Image
           alt="Icon Success"
           height={64}
@@ -33,7 +35,9 @@ export default async function Page({
         </p>
       </div>
 
-      <form action="" className="w-full absolute bottom-10 px-4">
+      <div className="flex-grow-[5]"></div>
+
+      <form action="" className="w-full">
         <button
           className="w-full text-center py-4 bg-dark-slate-grey text-white font-bold rounded-md"
           type="submit"
