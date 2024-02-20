@@ -21,8 +21,8 @@ export function JoinForm() {
           <div id="email-error" aria-live="polite" aria-atomic>
             {
               state?.errors?.email &&
-              state.errors.email.map(error => (
-                <p className="text-tomato text-xs font-bold">
+              state.errors.email.map((error, i) => (
+                <p key={i} className="text-tomato text-xs font-bold">
                   {error}
                 </p>
               ))
