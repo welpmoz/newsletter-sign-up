@@ -17,7 +17,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <div>
+        <div className="md:min-h-screen md:grid md:items-center md:bg-charcoal-grey">
           {children}
         </div>
       </body>
