@@ -1,6 +1,7 @@
-import { EmailValidator } from "@/lib/validators"
 import Image from "next/image"
 import { redirect } from "next/navigation"
+import { clsx } from "clsx";
+import { EmailValidator } from "@/lib/validators"
 
 interface SearchParams {
   searchParams?: {
@@ -18,10 +19,16 @@ export default async function Page({
   const { email } = validatedUrl.data
 
   return (
-    <div className="flex flex-col bg-white min-h-screen px-4 py-8">
-      <div className="flex-grow-[3]"></div>
+    <div className={clsx(
+      "flex flex-col bg-white min-h-screen px-4 py-8",
+      "md:max-w-fit md:max-h-fit md:mx-auto md:px-8 md:rounded-2xl md:min-h-fit md:gap-6"
+    )}>
+      <div className="flex-grow-[3] md:hidden"></div>
 
-      <div className="text-dark-slate-grey space-y-6">
+      <div className={clsx(
+        "text-dark-slate-grey space-y-6",
+        "md:max-w-[40ch]"
+      )}>
         <Image
           alt="Icon Success"
           height={64}
@@ -41,7 +48,7 @@ export default async function Page({
         </p>
       </div>
 
-      <div className="flex-grow-[5]"></div>
+      <div className="flex-grow-[5] md:hidden"></div>
 
       <form action="" className="w-full">
         <button
