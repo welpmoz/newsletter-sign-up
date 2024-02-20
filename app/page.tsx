@@ -1,7 +1,7 @@
 import { clsx } from "clsx";
 import { JoinForm } from "@/components/join-form";
 import { ListItem } from "@/components/list-item";
-import Image from "next/image";
+import { SignUpImages } from "@/components/sign-up-images";
 
 export default function Home() {
   const advantages = [
@@ -15,22 +15,7 @@ export default function Home() {
       "flex flex-col bg-white min-h-screen",
       "md:flex-row-reverse md:min-h-fit md:p-4 md:rounded-xl md:justify-center md:max-w-fit md:mx-auto"
     )}>
-      <Image
-        alt="Sign Up Illustration"
-        className="w-auto h-auto md:hidden"
-        height={284}
-        priority
-        src={`/assets/images/illustration-sign-up-mobile.svg`}
-        width={375}
-      />
-
-      <Image
-        alt="Sign Up Illustration"
-        className="hidden md:block"
-        height={593}
-        src={`/assets/images/illustration-sign-up-desktop.svg`}
-        width={400}
-      />
+      <SignUpImages />
 
       <div className={clsx(
         "text-dark-slate-grey px-4 py-8 space-y-8",
