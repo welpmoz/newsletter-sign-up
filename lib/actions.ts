@@ -1,5 +1,6 @@
 'use server'
 
+import { redirect } from "next/navigation";
 import { z } from "zod";
 
 const EmailValidator = z.object({
@@ -29,5 +30,5 @@ export async function newJoin(
   }
 
   const { email } = validatedFields.data
-  console.log('email received in server', email)
+  redirect(`/thanks?email=${email}`)
 }
