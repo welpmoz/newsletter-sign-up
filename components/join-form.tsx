@@ -4,8 +4,15 @@ import { useFormState } from "react-dom"
 import { newJoin } from "@/lib/actions"
 import { clsx } from "clsx";
 
+type State = {
+  errors?: {
+    email?: string[]
+  }
+  message?: string | null
+}
+
 export function JoinForm() {
-  const initialState = { errors: null, message: null }
+  const initialState: State = {}
   const [state, dispatch] = useFormState(newJoin, initialState)
 
   return (
